@@ -33,9 +33,9 @@ public class ShapeCollectorTestSuite {
     public void testAddShape() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle();
-        Square square = new Square();
-        Triangle triangle = new Triangle();
+        Circle circle = new Circle(2);
+        Square square = new Square(3);
+        Triangle triangle = new Triangle(4, 2);
 
         //when
         shapeCollector.addFigure(circle);
@@ -51,9 +51,9 @@ public class ShapeCollectorTestSuite {
     public void testRemoveShape() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle();
-        Square square = new Square();
-        Triangle triangle = new Triangle();
+        Circle circle = new Circle(2);
+        Square square = new Square(3);
+        Triangle triangle = new Triangle(4, 2);
         shapeCollector.addFigure(circle);
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
@@ -75,9 +75,9 @@ public class ShapeCollectorTestSuite {
     public void testRemoveShapeWhenNotExisting() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle();
-        Square square = new Square();
-        Triangle triangle = new Triangle();
+        Circle circle = new Circle(2);
+        Square square = new Square(3);
+        Triangle triangle = new Triangle(4, 2);
 
         //when
         boolean resultCircle = shapeCollector.removeFigure(circle);
@@ -95,7 +95,7 @@ public class ShapeCollectorTestSuite {
     public void testGetShape() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Circle circle = new Circle();
+        Circle circle = new Circle(2);
         shapeCollector.addFigure(circle);
 
         //when
@@ -122,9 +122,9 @@ public class ShapeCollectorTestSuite {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
         List<Shape> shapesListToCompare = new ArrayList<>();
-        Circle circle = new Circle();
-        Square square = new Square();
-        Triangle triangle = new Triangle();
+        Circle circle = new Circle(2);
+        Square square = new Square(3);
+        Triangle triangle = new Triangle(4, 2);
         shapeCollector.addFigure(circle);
         shapeCollector.addFigure(square);
         shapeCollector.addFigure(triangle);
