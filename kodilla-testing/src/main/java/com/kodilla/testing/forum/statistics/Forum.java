@@ -1,14 +1,7 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Forum {
 
-public class Forum  implements Statistics {
-
-    private List<String> names = new ArrayList<>();
-    private List<Post> posts = new ArrayList<>();
-    private List<Comment> comments = new ArrayList<>();
-    private List<Integer> forumStatistics = new ArrayList<>();
     private int QuantityOfPosts;
     private int QuantityOfComments;
     private int QuantityOfUsers;
@@ -17,41 +10,59 @@ public class Forum  implements Statistics {
     private int AvrCommentsOnPost;
 
     public void calculateAdvStatistics(Statistics statistics){
-        this.QuantityOfUsers = usersNames().size();
-        forumStatistics.add(QuantityOfUsers);
+        this.QuantityOfUsers = statistics.usersNames().size();
 
-        this.QuantityOfPosts = postsCount();
-        forumStatistics.add(QuantityOfPosts);
+        this.QuantityOfPosts = statistics.postsCount();
 
-        this.QuantityOfComments = commentsCount();
-        forumStatistics.add(QuantityOfComments);
+        this.QuantityOfComments = statistics.commentsCount();
 
-        this.AvrPostsOnUser = QuantityOfPosts/QuantityOfUsers;
-        forumStatistics.add(AvrPostsOnUser);
+        if(QuantityOfUsers > 0 && QuantityOfPosts > 0){
+            this.AvrPostsOnUser = QuantityOfPosts/QuantityOfUsers;
+        } else if(QuantityOfUsers == 0 && QuantityOfPosts > 0){
+            this.AvrPostsOnUser = QuantityOfPosts;
+        } else if (QuantityOfPosts == 0){
+            this.AvrPostsOnUser = 0;
+        }
 
-        this.AvrCommentsOnUser = QuantityOfComments/QuantityOfUsers;
-        forumStatistics.add(AvrCommentsOnUser);
+        if(QuantityOfUsers > 0 && QuantityOfComments > 0){
+            this.AvrCommentsOnUser = QuantityOfComments/QuantityOfUsers;
+        } else if (QuantityOfUsers == 0 && QuantityOfComments > 0){
+            this.AvrCommentsOnUser = QuantityOfComments;
+        } else if (QuantityOfComments == 0){
+            this.AvrCommentsOnUser = 0;
+        }
 
-        this.AvrCommentsOnPost = QuantityOfComments/QuantityOfPosts;
-        forumStatistics.add(AvrCommentsOnPost);
+        if(QuantityOfPosts > 0 && QuantityOfComments > 0){
+            this.AvrCommentsOnPost = QuantityOfComments/QuantityOfPosts;
+        } else if(QuantityOfPosts == 0 && QuantityOfComments > 0){
+            this.AvrCommentsOnPost = QuantityOfComments;
+        } else if(QuantityOfComments == 0) {
+            this.AvrCommentsOnPost = 0;
+        }
+
     }
 
-    @Override
-    public List<String> usersNames() {
-        return names;
+    public int getQuantityOfPosts() {
+        return QuantityOfPosts;
     }
 
-    @Override
-    public int postsCount() {
-        return posts.size();
+    public int getQuantityOfComments() {
+        return QuantityOfComments;
     }
 
-    @Override
-    public int commentsCount() {
-        return comments.size();
+    public int getQuantityOfUsers() {
+        return QuantityOfUsers;
     }
 
-    public List<Integer> showStatistics(){
-        return forumStatistics;
+    public int getAvrPostsOnUser() {
+        return AvrPostsOnUser;
+    }
+
+    public int getAvrCommentsOnUser() {
+        return AvrCommentsOnUser;
+    }
+
+    public int getAvrCommentsOnPost() {
+        return AvrCommentsOnPost;
     }
 }
