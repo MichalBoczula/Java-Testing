@@ -8,7 +8,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class ShapeCollectorTestSuite {
-
+//testy liczenia pola
     @Before
     public void before(){
         System.out.println("TestCase: Begin");
@@ -150,10 +150,43 @@ public class ShapeCollectorTestSuite {
         List<Shape> resultShapesList = new ArrayList<>(shapeCollector.showFigures());
 
         //then
-        // Który test jest lepiej używać porównanie pustej listy to pustej listy,
-        // czy sprawdzenie jej wymiaru???
         System.out.println("Testing: testGetAllFiguresWhenNotExisting");
         assertEquals(0, resultShapesList.size());
         assertArrayEquals(shapesListToCompare.toArray(), resultShapesList.toArray());
+    }
+
+    @Test
+    public void testCountAField(){
+        //given
+        Circle circle = new Circle(2);
+        Square square = new Square(3);
+        Triangle triangle = new Triangle(4, 2);
+        Double squareField = Math.pow(3, 2);
+        Double triangleField = 4.0*2.0/2;
+        Double circleField = Math.pow(2, 2)*Math.PI;
+        Double resultCircle = circle.getField();
+        Double resultSquare = square.getField();
+        Double resultTriangle = triangle.getField();
+        boolean resultOfCompareSquare = false;
+        boolean resultOfCompareTriangle = false;
+        boolean resultOfCompareCircle = false;
+
+        //when
+        if(squareField.equals(resultSquare)){
+             resultOfCompareSquare = true;
+        }
+
+        if(triangleField.equals(resultTriangle)){
+            resultOfCompareTriangle = true;
+        }
+
+        if(circleField.equals(resultCircle)){
+            resultOfCompareCircle = true;
+        }
+
+        //then
+        Assert.assertTrue(resultOfCompareCircle);
+        Assert.assertTrue(resultOfCompareTriangle);
+        Assert.assertTrue(resultOfCompareSquare);
     }
 }

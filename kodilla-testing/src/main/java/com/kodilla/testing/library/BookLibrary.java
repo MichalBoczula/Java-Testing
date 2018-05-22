@@ -29,12 +29,28 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
-       List<Book> localList = new ArrayList<>();
+        boolean result = checkUserIdInDatabase(libraryUser);
 
-        if(libraryUser.getPeselId() == "000"){
-            localList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        if(result){
+            return libraryDatabase.listBooksInHandsOf(libraryUser);
         }
 
-        return localList;
+        return null;
     }
+
+    private boolean checkUserIdInDatabase(LibraryUser libraryUser){
+        List<String> usersID= new ArrayList<>();
+        boolean result = false;
+
+        usersID.add("000");
+        usersID.add("001");
+        usersID.add("002");
+
+        if(usersID.contains(libraryUser.getPeselId())){
+            result = true;
+        }
+
+        return result;
+    }
+
 }

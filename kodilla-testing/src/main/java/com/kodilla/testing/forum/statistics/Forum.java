@@ -2,67 +2,67 @@ package com.kodilla.testing.forum.statistics;
 
 public class Forum {
 
-    private int QuantityOfPosts;
-    private int QuantityOfComments;
-    private int QuantityOfUsers;
-    private int AvrPostsOnUser;
-    private int AvrCommentsOnUser;
-    private int AvrCommentsOnPost;
+    private int quantityOfPosts;
+    private int quantityOfComments;
+    private int quantityOfUsers;
+    private int avrPostsOnUser;
+    private int avrCommentsOnUser;
+    private int avrCommentsOnPost;
 
     public void calculateAdvStatistics(Statistics statistics){
-        this.QuantityOfUsers = statistics.usersNames().size();
+        this.quantityOfUsers = statistics.usersNames().size();
 
-        this.QuantityOfPosts = statistics.postsCount();
+        this.quantityOfPosts = statistics.postsCount();
 
-        this.QuantityOfComments = statistics.commentsCount();
+        this.quantityOfComments = statistics.commentsCount();
 
-        if(QuantityOfUsers > 0 && QuantityOfPosts > 0){
-            this.AvrPostsOnUser = QuantityOfPosts/QuantityOfUsers;
-        } else if(QuantityOfUsers == 0 && QuantityOfPosts > 0){
-            this.AvrPostsOnUser = QuantityOfPosts;
-        } else if (QuantityOfPosts == 0){
-            this.AvrPostsOnUser = 0;
+        if(quantityOfUsers > 0 && quantityOfPosts > 0){
+            this.avrPostsOnUser = quantityOfPosts/quantityOfUsers;
+        } else if(quantityOfUsers == 0 && quantityOfPosts > 0){
+            this.avrPostsOnUser = quantityOfPosts;
+        } else if (quantityOfPosts == 0){
+            this.avrPostsOnUser = 0;
         }
 
-        if(QuantityOfUsers > 0 && QuantityOfComments > 0){
-            this.AvrCommentsOnUser = QuantityOfComments/QuantityOfUsers;
-        } else if (QuantityOfUsers == 0 && QuantityOfComments > 0){
-            this.AvrCommentsOnUser = QuantityOfComments;
-        } else if (QuantityOfComments == 0){
-            this.AvrCommentsOnUser = 0;
+        if(quantityOfUsers > 0 && quantityOfComments > 0){
+            this.avrCommentsOnUser = quantityOfComments/quantityOfUsers;
+        } else if (quantityOfUsers == 0 && quantityOfComments > 0){
+            this.avrCommentsOnUser = quantityOfComments;
+        } else if (quantityOfComments == 0){
+            this.avrCommentsOnUser = 0;
         }
 
-        if(QuantityOfPosts > 0 && QuantityOfComments > 0){
-            this.AvrCommentsOnPost = QuantityOfComments/QuantityOfPosts;
-        } else if(QuantityOfPosts == 0 && QuantityOfComments > 0){
-            this.AvrCommentsOnPost = QuantityOfComments;
-        } else if(QuantityOfComments == 0) {
-            this.AvrCommentsOnPost = 0;
+        if(quantityOfPosts > 0 && quantityOfComments > 0){
+            this.avrCommentsOnPost = quantityOfComments/quantityOfPosts;
+        } else if(quantityOfPosts == 0 && quantityOfComments > 0){
+            this.avrCommentsOnPost = quantityOfComments;
+        } else if(quantityOfComments == 0) {
+            this.avrCommentsOnPost = 0;
         }
 
     }
 
     public int getQuantityOfPosts() {
-        return QuantityOfPosts;
+        return quantityOfPosts;
     }
 
     public int getQuantityOfComments() {
-        return QuantityOfComments;
+        return quantityOfComments;
     }
 
     public int getQuantityOfUsers() {
-        return QuantityOfUsers;
+        return quantityOfUsers;
     }
 
     public int getAvrPostsOnUser() {
-        return AvrPostsOnUser;
+        return avrPostsOnUser;
     }
 
     public int getAvrCommentsOnUser() {
-        return AvrCommentsOnUser;
+        return avrCommentsOnUser;
     }
 
     public int getAvrCommentsOnPost() {
-        return AvrCommentsOnPost;
+        return avrCommentsOnPost;
     }
 }
