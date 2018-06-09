@@ -30,12 +30,12 @@ public class BookLibrary {
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
         boolean result = checkUserIdInDatabase(libraryUser);
-
+        List<Book> bookList = new ArrayList<Book>();
         if(result){
             return libraryDatabase.listBooksInHandsOf(libraryUser);
         }
 
-        return null;
+        return bookList;
     }
 
     private boolean checkUserIdInDatabase(LibraryUser libraryUser){
